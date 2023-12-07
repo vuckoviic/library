@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = [book1, book2];
 
 function Book(author, title, pages, read) {
   this.autor = author;
@@ -13,6 +13,9 @@ function Book(author, title, pages, read) {
     }
   }
 }
+
+let book1 = new Book("Atomic Habits", "James Clear", 320, false);
+let book2 = new Book("Zero To One", "Peter Blake", 180, false);
 
 function addBookToLibrary() {
 //   for (let prop in Book) {
