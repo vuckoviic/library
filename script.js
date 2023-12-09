@@ -1,4 +1,4 @@
-const myLibrary = [book1, book2];
+// const myLibrary = [book1, book2];
 
 function Book(author, title, pages, read) {
   this.autor = author;
@@ -22,3 +22,12 @@ function addBookToLibrary() {
 //     myLibrary.push(prop);
 //   }
 }
+
+function displayingBooks() {
+  const mainPage = document.getElementById("main");
+  const p = document.createElement("p");
+  p.innerText = "Title:";
+  mainPage.appendChild(p);
+}
+
+displayingBooks();
