@@ -1,7 +1,7 @@
 // const myLibrary = [book1, book2];
 
-function Book(author, title, pages, read) {
-  this.autor = author;
+function Book(title, author, pages, read) {
+  this.author = author;
   this.title = title;
   this.pages = pages;
   this.read = function() {
@@ -23,11 +23,28 @@ function addBookToLibrary() {
 //   }
 }
 
+const mainPage = document.getElementById("main");
+
 function displayingBooks() {
-  const mainPage = document.getElementById("main");
-  const p = document.createElement("p");
-  p.innerText = "Title:";
-  mainPage.appendChild(p);
+  const card = document.createElement("div");
+  card.classList.add("card");
+  mainPage.appendChild(card);
+
+  const pTitle = document.createElement("p");
+  pTitle.innerText = `Title: ${book1.title}`; // this.title
+  card.appendChild(pTitle);
+
+  const pAuthor = document.createElement("p");
+  pAuthor.innerText = `Author: ${book1.author}`; // this.author
+  card.appendChild(pAuthor);
+
+  const pPages = document.createElement("p");
+  pPages.innerText = `Pages: ${book1.pages}`; // this.pages
+  card.appendChild(pPages);
+
+  const pRead = document.createElement("p");
+  pRead.innerText = `Read: ${book1.read()}`; // this.read
+  card.appendChild(pRead);
 }
 
 displayingBooks();
