@@ -50,6 +50,11 @@ function displayingBooks() {
   readButton.classList.add("read-button");
   readButton.innerText = "Change read status";
   card.appendChild(readButton);
+
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("remove-button");
+  removeButton.innerText = "Remove book";
+  card.appendChild(removeButton);
 }
 
 displayingBooks();
