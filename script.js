@@ -6,10 +6,10 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = function() {
     if (read === true) {
-        return "read the book";
+        return "Read the book";
     }
     else {
-        return "didn't read the book";
+        return "Didn't read the book";
     }
   }
 }
@@ -43,8 +43,13 @@ function displayingBooks() {
   card.appendChild(pPages);
 
   const pRead = document.createElement("p");
-  pRead.innerText = `Read: ${book1.read()}`; // this.read
+  pRead.innerText = `${book1.read()}`; // this.read
   card.appendChild(pRead);
+
+  const readButton = document.createElement("button");
+  readButton.classList.add("read-button");
+  readButton.innerText = "Change read status";
+  card.appendChild(readButton);
 }
 
 displayingBooks();
