@@ -51,6 +51,17 @@ function displayingBooks() {
   readButton.innerText = "Change read status";
   card.appendChild(readButton);
 
+  readButton.addEventListener('click', () => {
+    if (book1.read === true) {
+      book1.read = false;
+      pRead.innerText = "Didn't read the book";
+    }
+    else {
+      book1.read = true;
+      pRead.innerText = "Read the book";
+    }
+  });
+
   const removeButton = document.createElement("button");
   removeButton.classList.add("remove-button");
   removeButton.innerText = "Remove book";
