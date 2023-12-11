@@ -57,3 +57,7 @@ header button {
     font-weight: bold;
     margin-top: 5px;
 }
+
+button:hover {
+    cursor: pointer;
+}
