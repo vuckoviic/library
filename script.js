@@ -29,25 +29,25 @@ function addBookToLibrary() {
 const mainPage = document.getElementById("main");
 
 function displayingBooks() {
-  console.log(this);
+
   const card = document.createElement("div");
   card.classList.add("card");
   mainPage.appendChild(card);
 
   const pTitle = document.createElement("p");
-  pTitle.innerText = `Title: ${this.title}`; // this.title
+  pTitle.innerText = `Title: ${this.title}`;
   card.appendChild(pTitle);
 
   const pAuthor = document.createElement("p");
-  pAuthor.innerText = `Author: ${this.author}`; // this.author
+  pAuthor.innerText = `Author: ${this.author}`;
   card.appendChild(pAuthor);
 
   const pPages = document.createElement("p");
-  pPages.innerText = `Pages: ${this.pages}`; // this.pages
+  pPages.innerText = `Pages: ${this.pages}`;
   card.appendChild(pPages);
 
   const pRead = document.createElement("p");
-  pRead.innerText = `${this.read()}`; // this.read
+  pRead.innerText = `${this.read()}`;
   card.appendChild(pRead);
 
   const readButton = document.createElement("button");
@@ -73,12 +73,18 @@ function displayingBooks() {
 
   removeButton.addEventListener('click', () => {
     // remove element from myLibrary array whose index is === data-*
-  })
+  });
 }
 
 Book.prototype.displayingBooks = displayingBooks;
-console.log(Object.getPrototypeOf(book1) === Book.prototype);
 
 for (let i = 0; i < myLibrary.length; i++) {
   myLibrary[i].displayingBooks();
+}
+
+const cards = document.querySelectorAll(".card");
+console.log(cards);
+
+for (let i = 0; i < cards.length; i++) {
+  cards[i].setAttribute("data-index", i);
 }
