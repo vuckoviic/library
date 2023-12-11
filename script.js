@@ -74,7 +74,6 @@ function displayingBooks() {
   removeButton.addEventListener('click', () => {
     let cardAtt = card.getAttribute("data-index");
     myLibrary.shift(cardAtt);
-    console.log(myLibrary.length);
     mainPage.removeChild(card);
   });
 }
