@@ -72,7 +72,10 @@ function displayingBooks() {
   card.appendChild(removeButton);
 
   removeButton.addEventListener('click', () => {
-    // remove element from myLibrary array whose index is === data-*
+    let cardAtt = card.getAttribute("data-index");
+    myLibrary.shift(cardAtt);
+    console.log(myLibrary.length);
+    mainPage.removeChild(card);
   });
 }
 
@@ -83,7 +86,6 @@ for (let i = 0; i < myLibrary.length; i++) {
 }
 
 const cards = document.querySelectorAll(".card");
-console.log(cards);
 
 for (let i = 0; i < cards.length; i++) {
   cards[i].setAttribute("data-index", i);
