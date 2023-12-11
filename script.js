@@ -1,4 +1,8 @@
-// const myLibrary = [book1, book2];
+
+let book1 = new Book("Atomic Habits", "James Clear", 320, false);
+let book2 = new Book("Zero To One", "Peter Blake", 180, false);
+
+const myLibrary = [book1, book2];
 
 function Book(title, author, pages, read) {
   this.author = author;
@@ -12,10 +16,9 @@ function Book(title, author, pages, read) {
         return "Didn't read the book";
     }
   }
-}
+  Object.setPrototypeOf(this, Book.prototype);
+};
 
-let book1 = new Book("Atomic Habits", "James Clear", 320, false);
-let book2 = new Book("Zero To One", "Peter Blake", 180, false);
 
 function addBookToLibrary() {
 //   for (let prop in Book) {
@@ -26,24 +29,25 @@ function addBookToLibrary() {
 const mainPage = document.getElementById("main");
 
 function displayingBooks() {
+  console.log(this);
   const card = document.createElement("div");
   card.classList.add("card");
   mainPage.appendChild(card);
 
   const pTitle = document.createElement("p");
-  pTitle.innerText = `Title: ${book1.title}`; // this.title
+  pTitle.innerText = `Title: ${this.title}`; // this.title
   card.appendChild(pTitle);
 
   const pAuthor = document.createElement("p");
-  pAuthor.innerText = `Author: ${book1.author}`; // this.author
+  pAuthor.innerText = `Author: ${this.author}`; // this.author
   card.appendChild(pAuthor);
 
   const pPages = document.createElement("p");
-  pPages.innerText = `Pages: ${book1.pages}`; // this.pages
+  pPages.innerText = `Pages: ${this.pages}`; // this.pages
   card.appendChild(pPages);
 
   const pRead = document.createElement("p");
-  pRead.innerText = `${book1.read()}`; // this.read
+  pRead.innerText = `${this.read()}`; // this.read
   card.appendChild(pRead);
 
   const readButton = document.createElement("button");
@@ -52,12 +56,12 @@ function displayingBooks() {
   card.appendChild(readButton);
 
   readButton.addEventListener('click', () => {
-    if (book1.read === true) {
-      book1.read = false;
+    if (this.read === true) {
+      this.read = false;
       pRead.innerText = "Didn't read the book";
     }
     else {
-      book1.read = true;
+      this.read = true;
       pRead.innerText = "Read the book";
     }
   });
@@ -66,6 +70,15 @@ function displayingBooks() {
   removeButton.classList.add("remove-button");
   removeButton.innerText = "Remove book";
   card.appendChild(removeButton);
+
+  removeButton.addEventListener('click', () => {
+    // remove element from myLibrary array whose index is === data-*
+  })
 }
 
-displayingBooks();
+Book.prototype.displayingBooks = displayingBooks;
+console.log(Object.getPrototypeOf(book1) === Book.prototype);
+
+for (let i = 0; i < myLibrary.length; i++) {
+  myLibrary[i].displayingBooks();
+}
