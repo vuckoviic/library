@@ -97,7 +97,7 @@ addButton.addEventListener("click", () => {
 
 createButton.addEventListener("click", () => {
   const book = new Book(titleForm.value, authorForm.value, pagesForm.value, readForm.checked);
-  myLibrary.push(book1);
+  myLibrary.push(book);
   console.log(myLibrary);
   console.log(book);
 });
