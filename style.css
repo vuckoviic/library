@@ -67,9 +67,9 @@ body {
     position: relative;
 }
 
-dialog.open {
+dialog {
     height: 50vh;
-    width: 40vw;
+    width: 20vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -100,6 +100,7 @@ dialog input {
     font-size: 1.2em;
     border-radius: 15px;
     border: none;
+    transition: 0.5s;
 }
 
 .create-button {
@@ -108,8 +109,9 @@ dialog input {
 }
 
 .cancel-button {
-    background-color: red;
-    color: white;
+    background-color: white;
+    color: red;
+    border: 2px solid red;
 }
 
 input[type="checkbox"] {
@@ -135,14 +137,14 @@ dialog form {
     background-color: white;
     color: green;
     transition: 0.5s;
-    border: 3px solid green;
+    border: 2px solid green;
 }
 
 .cancel-button:hover {
-    background-color: white;
-    color: red;
+    background-color: red;
+    color: white;
     transition: 0.5s;
-    border: 3px solid red;
+    border: 2px solid red;
 }
 
 .add-book:hover {
