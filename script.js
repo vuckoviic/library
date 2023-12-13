@@ -1,8 +1,4 @@
-
-let book1 = new Book("Atomic Habits", "James Clear", 320, false);
-let book2 = new Book("Zero To One", "Peter Blake", 180, false);
-
-const myLibrary = [book1, book2];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.author = author;
@@ -93,11 +89,24 @@ for (let i = 0; i < cards.length; i++) {
 const addButton = document.querySelector(".add-book");
 const dialog = document.querySelector("dialog");
 const cancelButton = document.querySelector(".cancel-button");
+const createButton = document.querySelector(".create-button");
 
 addButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
+createButton.addEventListener("click", () => {
+  const book = new Book(titleForm.value, authorForm.value, pagesForm.value, readForm.checked);
+  myLibrary.push(book1);
+  console.log(myLibrary);
+  console.log(book);
+});
+
 cancelButton.addEventListener("click", () => {
   dialog.close();
 });
+
+const titleForm = document.getElementById("title");
+const authorForm = document.getElementById("author");
+const pagesForm = document.getElementById("pages");
+const readForm = document.getElementById("read");
