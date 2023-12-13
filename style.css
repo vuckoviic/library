@@ -73,4 +73,72 @@ dialog {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: navy;
+    border-radius: 25px;
+    color: white;
+    padding: 25px;
+}
+
+dialog input {
+    border-radius: 25px;
+    padding: 5px;
+    border: none;
+}
+
+.create-button,
+.quit-button {
+    height: 55px;
+    width: 100px;
+    color: navy;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 15px;
+    border: none;
+}
+
+.create-button {
+    background-color: green;
+    color: white;
+}
+
+.quit-button {
+    background-color: red;
+    color: white;
+}
+
+input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+    flex-direction: row;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#read {
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.create-button:hover {
+    background-color: white;
+    color: green;
+    transition: 0.5s;
+    border: 3px solid green;
+}
+
+.quit-button:hover {
+    background-color: white;
+    color: red;
+    transition: 0.5s;
+    border: 3px solid red;
 }
