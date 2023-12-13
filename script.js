@@ -89,3 +89,15 @@ const cards = document.querySelectorAll(".card");
 for (let i = 0; i < cards.length; i++) {
   cards[i].setAttribute("data-index", i);
 }
+
+const addButton = document.querySelector(".add-book");
+const dialog = document.querySelector("dialog");
+const cancelButton = document.querySelector(".cancel-button");
+
+addButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+cancelButton.addEventListener("click", () => {
+  dialog.close();
+});
