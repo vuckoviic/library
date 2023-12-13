@@ -25,6 +25,7 @@ header button {
     color: navy;
     font-size: 1.2em;
     font-weight: bold;
+    transition: 0.5s;
 }
 
 .card {
@@ -146,5 +147,6 @@ dialog form {
 
 .add-book:hover {
     background-color: navy;
-    color: white; 
+    color: white;
+    transition: 0.5s;
 }
