@@ -148,7 +148,7 @@ dialog form {
 }
 
 #main {
-    padding: 5%;
+    padding: 2%;
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
