@@ -17,15 +17,15 @@ function Book(title, author, pages, read) {
 
 
 function addBookToLibrary() {
-//   for (let prop in Book) {
-//     myLibrary.push(prop);
-//   }
-}
+  let newObject = myLibrary.length - 1; 
+  console.log(newObject);
+  myLibrary[newObject].displayingBooks();
+};
 
 const mainPage = document.getElementById("main");
 
 function displayingBooks() {
-
+  console.log(this);
   const card = document.createElement("div");
   card.classList.add("card");
   mainPage.appendChild(card);
@@ -100,6 +100,7 @@ createButton.addEventListener("click", () => {
   myLibrary.push(book);
   console.log(myLibrary);
   console.log(book);
+  addBookToLibrary();
 });
 
 cancelButton.addEventListener("click", () => {
