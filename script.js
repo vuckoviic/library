@@ -96,15 +96,26 @@ addButton.addEventListener("click", () => {
 });
 
 createButton.addEventListener("click", () => {
-  const book = new Book(titleForm.value, authorForm.value, pagesForm.value, readForm.checked);
-  myLibrary.push(book);
-  console.log(myLibrary);
-  console.log(book);
-  addBookToLibrary();
+  if (titleForm.value.length > 0 && authorForm.value.length > 0 && pagesForm.value.length > 0) {
+    const book = new Book(titleForm.value, authorForm.value, pagesForm.value, readForm.checked);
+    myLibrary.push(book);
+    console.log(myLibrary);
+    console.log(book);
+    addBookToLibrary();
+    dialog.close();
+    titleForm.value = "";
+    authorForm.value = "";
+    pagesForm.value = "";
+    readForm.checked = false;
+  }
 });
 
 cancelButton.addEventListener("click", () => {
   dialog.close();
+  titleForm.value = "";
+  authorForm.value = "";
+  pagesForm.value = "";
+  readForm.checked = false;
 });
 
 const titleForm = document.getElementById("title");
