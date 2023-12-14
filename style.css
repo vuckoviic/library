@@ -104,12 +104,13 @@ dialog input {
 }
 
 .create-button {
-    background-color: green;
+    background-color: navy;
     color: white;
+    border: 2px solid white;
 }
 
 .cancel-button {
-    background-color: white;
+    background-color: navy;
     color: red;
     border: 2px solid red;
 }
@@ -134,17 +135,17 @@ dialog form {
 }
 
 .create-button:hover {
-    background-color: white;
-    color: green;
+    background-color: green;
+    color: white;
     transition: 0.5s;
-    border: 2px solid green;
+    border: 2px solid white;
 }
 
 .cancel-button:hover {
     background-color: red;
     color: white;
     transition: 0.5s;
-    border: 2px solid red;
+    border: 2px solid white;
 }
 
 .add-book:hover {
