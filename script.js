@@ -4,14 +4,16 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.title = title;
   this.pages = pages;
-  this.read = function() {
-    if (read === true) {
-        return "Read the book";
+  this.read = read;
+
+  this.readStatus = function() {
+    if (this.read === true) {
+      return "Read the book";
+    } else {
+      return "Didn't read the book"
     }
-    else {
-        return "Didn't read the book";
-    }
-  }
+  };
+
   Object.setPrototypeOf(this, Book.prototype);
 };
 
@@ -43,14 +45,14 @@ function displayingBooks() {
   card.appendChild(pPages);
 
   const pRead = document.createElement("p");
-  pRead.innerText = `${this.read()}`;
+  pRead.innerText = `${this.readStatus()}`;
   card.appendChild(pRead);
 
   const readButton = document.createElement("button");
   readButton.classList.add("read-button");
   readButton.innerText = "Change read status";
   card.appendChild(readButton);
-
+  console.log(this.read === true);
   readButton.addEventListener('click', () => {
     if (this.read === true) {
       this.read = false;
