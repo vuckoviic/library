@@ -1,20 +1,21 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.read = read;
+class Book {
 
-  this.readStatus = function() {
+  constructor(title, author, pages, read) {
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.read = read;    
+  }
+
+  readStatus = function() {
     if (this.read === true) {
       return "Read the book";
     } else {
       return "Didn't read the book"
     }
   };
-
-  Object.setPrototypeOf(this, Book.prototype);
 };
 
 
