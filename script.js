@@ -16,68 +16,70 @@ class Book {
       return "Didn't read the book"
     }
   };
-};
+
+  displayingBooks() {
+    console.log(this);
+    const card = document.createElement("div");
+    card.classList.add("card");
+    mainPage.appendChild(card);
+  
+    const pTitle = document.createElement("p");
+    pTitle.innerText = `Title: ${this.title}`;
+    card.appendChild(pTitle);
+  
+    const pAuthor = document.createElement("p");
+    pAuthor.innerText = `Author: ${this.author}`;
+    card.appendChild(pAuthor);
+  
+    const pPages = document.createElement("p");
+    pPages.innerText = `Pages: ${this.pages}`;
+    card.appendChild(pPages);
+  
+    const pRead = document.createElement("p");
+    pRead.innerText = `${this.readStatus()}`;
+    card.appendChild(pRead);
+  
+    const readButton = document.createElement("button");
+    readButton.classList.add("read-button");
+    readButton.innerText = "Change read status";
+    card.appendChild(readButton);
+    console.log(this.read === true);
+    readButton.addEventListener('click', () => {
+      if (this.read === true) {
+        this.read = false;
+        pRead.innerText = "Didn't read the book";
+      }
+      else {
+        this.read = true;
+        pRead.innerText = "Read the book";
+      }
+    });
+  
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("remove-button");
+    removeButton.innerText = "Remove book";
+    card.appendChild(removeButton);
+  
+    removeButton.addEventListener('click', () => {
+      let cardAtt = card.getAttribute("data-index");
+      myLibrary.shift(cardAtt);
+      mainPage.removeChild(card);
+    });
+  }
 
 
-function addBookToLibrary() {
-  let newObject = myLibrary.length - 1; 
-  console.log(newObject);
-  myLibrary[newObject].displayingBooks();
+  addBookToLibrary() {
+    let newObject = myLibrary.length - 1; 
+    console.log(newObject);
+    myLibrary[newObject].displayingBooks();
+  };
+  
 };
 
 const mainPage = document.getElementById("main");
 
-function displayingBooks() {
-  console.log(this);
-  const card = document.createElement("div");
-  card.classList.add("card");
-  mainPage.appendChild(card);
 
-  const pTitle = document.createElement("p");
-  pTitle.innerText = `Title: ${this.title}`;
-  card.appendChild(pTitle);
-
-  const pAuthor = document.createElement("p");
-  pAuthor.innerText = `Author: ${this.author}`;
-  card.appendChild(pAuthor);
-
-  const pPages = document.createElement("p");
-  pPages.innerText = `Pages: ${this.pages}`;
-  card.appendChild(pPages);
-
-  const pRead = document.createElement("p");
-  pRead.innerText = `${this.readStatus()}`;
-  card.appendChild(pRead);
-
-  const readButton = document.createElement("button");
-  readButton.classList.add("read-button");
-  readButton.innerText = "Change read status";
-  card.appendChild(readButton);
-  console.log(this.read === true);
-  readButton.addEventListener('click', () => {
-    if (this.read === true) {
-      this.read = false;
-      pRead.innerText = "Didn't read the book";
-    }
-    else {
-      this.read = true;
-      pRead.innerText = "Read the book";
-    }
-  });
-
-  const removeButton = document.createElement("button");
-  removeButton.classList.add("remove-button");
-  removeButton.innerText = "Remove book";
-  card.appendChild(removeButton);
-
-  removeButton.addEventListener('click', () => {
-    let cardAtt = card.getAttribute("data-index");
-    myLibrary.shift(cardAtt);
-    mainPage.removeChild(card);
-  });
-}
-
-Book.prototype.displayingBooks = displayingBooks;
+// Book.prototype.displayingBooks = displayingBooks;
 
 for (let i = 0; i < myLibrary.length; i++) {
   myLibrary[i].displayingBooks();
@@ -104,7 +106,7 @@ createButton.addEventListener("click", () => {
     myLibrary.push(book);
     console.log(myLibrary);
     console.log(book);
-    addBookToLibrary();
+    book.addBookToLibrary();
     dialog.close();
     titleForm.value = "";
     authorForm.value = "";
